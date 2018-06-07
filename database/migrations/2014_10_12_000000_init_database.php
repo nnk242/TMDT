@@ -143,6 +143,7 @@ class InitDatabase extends Migration
             $table->string('local');
             $table->integer('time_max')->default(0);
             $table->integer('user_id')->default(1);
+            $table->integer('log_id')->nullable();
             $table->timestamps();
         });
 
