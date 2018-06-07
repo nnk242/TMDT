@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://unpkg.com/izitoast/dist/css/iziToast.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -75,5 +76,7 @@
             @yield('content')
         </main>
     </div>
+
+@yield('js')
 </body>
 </html>

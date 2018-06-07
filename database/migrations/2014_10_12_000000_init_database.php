@@ -142,6 +142,7 @@ class InitDatabase extends Migration
             $table->integer('types')->on('type_car');
             $table->string('local');
             $table->integer('time_max')->default(0);
+            $table->integer('user_id')->default(1);
             $table->timestamps();
         });
 
@@ -185,12 +186,15 @@ class InitDatabase extends Migration
             'local' => 'Hà Nội'
 
         ],
-
         ]);
 
         Schema::create('log_car', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->on('users');
+            $table->string('name');
+            $table->string('number_phone')->default(1);
+            $table->string('address')->default(1);
+            $table->time('time_start')->default(1);
             $table->timestamps();
         });
 

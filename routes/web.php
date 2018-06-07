@@ -14,6 +14,7 @@
 Route::get('/', 'IndexController@welcome')->name('welcome');
 Route::get('/chi-tiet/{id}', 'IndexController@info')->name('info');
 Route::get('/dat-xe/{id}', 'IndexController@bookcar')->name('bookcar');
+Route::post('/dat-xe/{id}', 'IndexController@pbookcar')->name('postbookcar');
 
 Auth::routes();
 

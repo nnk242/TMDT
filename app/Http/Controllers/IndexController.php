@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LogCar;
 use App\Manufacturer;
 use App\Type;
 use Illuminate\Http\Request;
@@ -86,5 +87,29 @@ class IndexController extends Controller
         $cs = Car::find($id);
         //return $cs;
         return view('bookcar', compact('cs'));
+    }
+
+    public function pbookcar($id, Request $request) {
+
+        $car = Car::find($id);
+        if (isset($car)) {
+            $user_id = $car->user_id;
+            $name = $request->hoten;
+            $numb = $request->sdt;
+            $addr = $request->diachi;
+            $time_ = $request->tgd;
+
+            $log = new LogCar();
+
+            $log->user_id = $user_id;
+            $log->name = $name;
+            $log->number_phone = $numb;
+            $log->address = $addr;
+            $log->time_start = $time_;
+            $log->save();
+
+            return redirect()->back()->with('mes', 'Đã gửi yêu cầu đến tài xế');
+        }
+        return redirect()->back()->with('er', 'Đã gửi yêu cầu đến tài xế');
     }
 }
