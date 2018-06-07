@@ -18,4 +18,4 @@ Route::post('/dat-xe/{id}', 'IndexController@pbookcar')->name('postbookcar');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
